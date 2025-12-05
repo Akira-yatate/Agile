@@ -1,0 +1,21 @@
+
+.points {
+    font-size: 27px;
+    padding: 5px;
+    font-weight: bold;    
+    min-width: 37px;
+    text-align: center;
+    color: #FFF;
+}
+
+/* .wrapper-board {
+  padding: 0px;
+} */
+
+.slds-page-header-custom {
+    padding: 5px !important; 
+}
+
+.draggable-source--is-dragging { 
+    opacity: 0.2;
+}

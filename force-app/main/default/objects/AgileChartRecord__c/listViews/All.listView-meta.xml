@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>SprintDate__c</columns>
+    <columns>EstimatedPoints__c</columns>
+    <columns>ActualPoints__c</columns>
+    <columns>Points__c</columns>
+    <columns>SprintDateOrder__c</columns>
+    <columns>Sprint__c</columns>
+    <columns>Type__c</columns>
+    <columns>ActualPointsCreated__c</columns>
+    <columns>OBJECT_ID</columns>
+    <filterScope>Everything</filterScope>
+    <label>Tudo</label>
+</ListView>

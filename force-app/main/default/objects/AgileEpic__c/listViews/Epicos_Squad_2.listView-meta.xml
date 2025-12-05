@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Epicos_Squad_2</fullName>
+    <columns>NAME</columns>
+    <columns>AggregatedEpic__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>Team__c</columns>
+    <columns>Status__c</columns>
+    <columns>TotalPoints__c</columns>
+    <columns>Priority__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Team__c</field>
+        <operation>contains</operation>
+        <value>Squad 2</value>
+    </filters>
+    <label>Épicos Squad 2</label>
+</ListView>

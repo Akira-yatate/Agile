@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ricco</fullName>
+    <columns>NAME</columns>
+    <columns>StartDate__c</columns>
+    <columns>FinalDate__c</columns>
+    <columns>BaPoints__c</columns>
+    <columns>DevPoints__c</columns>
+    <columns>PointsToDo__c</columns>
+    <columns>PointsExecuted__c</columns>
+    <columns>Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Team__c</field>
+        <operation>contains</operation>
+        <value>Ricco</value>
+    </filters>
+    <label>Ricco</label>
+</ListView>

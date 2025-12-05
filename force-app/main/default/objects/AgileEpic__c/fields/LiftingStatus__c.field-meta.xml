@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LiftingStatus__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+    AND(Backlog__c = 0, InLifting__c = 0, InApproval__c = 0, Finished__c = 0),
+    &quot;Não iniciado&quot;,
+    IF(
+        AND(Backlog__c &gt; 0, InLifting__c = 0, InApproval__c = 0, Finished__c = 0),
+        &quot;Discutida&quot;,
+        IF(
+            AND(Finished__c &gt; 0, Backlog__c = 0, InLifting__c = 0, InApproval__c = 0),
+            &quot;Concluído&quot;,
+            &quot;Em levantamento&quot;
+        )
+    )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Status Levantamento</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

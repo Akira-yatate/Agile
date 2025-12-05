@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BaPoints__c</fullName>
+    <label># Pontos BA</label>
+    <summarizedField>AgileWork__c.BaPoints__c</summarizedField>
+    <summaryForeignKey>AgileWork__c.AgileEpic__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

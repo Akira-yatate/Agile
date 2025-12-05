@@ -1,0 +1,229 @@
+<apex:page docType="html-5.0" standardStylesheets="false" showHeader="false" sidebar="false" controller="SprintBacklogController">
+    <html xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <head>
+        <title>TAAK Sprint Backlog</title>
+        <!-- <link class="user" href="/slds/css/5Xf_HfLX8jCYQG6bds7K6A/min/scoped/one:oneNamespace,force:sldsTokens,force:base,force:oneSalesforceSkin,force:levelOneDensity,force:themeTokens,force:formFactorLarge/slds.css" rel="stylesheet" type="text/css" /> -->
+        <!-- <apex:slds></apex:slds> -->
+        <apex:includeScript value="/soap/ajax/36.0/connection.js"/>
+        <apex:includeScript value="{!URLFOR($Resource.TAAKExpress, 'libs/Jquery/jquery.js')}" />
+        <script src="https://code.jquery.com/jquery-migrate-3.3.1.js"></script>
+        <apex:includeScript value="{!URLFOR($Resource.TAAKExpress, 'libs/JqueryInputmask/dist/jquery.inputmask.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.TAAKExpress, 'libs/StringMask/src/string-mask.js')}" />
+
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+        <meta name="apple-mobile-web-app-status-bar" content="#1aa1e0" />
+        <meta name="theme-color" content="#1aa1e0" />
+
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css" />
+        <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+
+        <apex:stylesheet value="{!URLFOR($Resource.TAAKExpress, 'libs/Sweetalert/SweetalertCss.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.TAAKExpress, 'libs/FeatherIcons/feather.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.TAAKExpress, 'css/slds.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.TAAKExpress, 'css/style.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.TAAK_ProjectApp, 'style.css')}" />
+
+        <apex:includeScript value="{!URLFOR($Resource.TAAKExpress, 'libs/Sweetalert/SweetalertJs.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.TAAKExpress, 'libs/MixinsAlert/MixinsAlert.js')}" />
+
+        <apex:includeScript value="{!URLFOR($Resource.TAAKExpress, 'libs/AngularJs/Angular.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.TAAKExpress, 'libs/AngularJs/AngularRoute.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.TAAKExpress, 'libs/AngularJs/AngularSanitize.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.TAAKExpress, 'libs/AngularJs/AngularLocationUpdate.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.TAAKExpress, 'libs/NgModelOptions/ngModelOptions.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.TAAKExpress, 'libs/Lookup/Lookups.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.TAAKExpress, 'libs/Calendar/Calendar.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.TAAKExpress, 'js/script.js')}" />
+
+        <!-- CONTROLLERS  -->
+        <apex:includeScript value="{!URLFOR($Resource.SprintBacklogApp, 'main.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.SprintBacklog_Home, 'home.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.SprintBacklog_TaskBoard, 'task-board.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.SprintBacklog_Analytics, 'analytics.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.SprintBacklog_SprintBacklog, 'sprint-backlog.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.SprintBacklog_SprintBacklog, 'sprint-backlog-drag.js')}" />
+
+        <!-- APP -->
+        <apex:includeScript value="{!URLFOR($Resource.TAAK_ProjectApp, 'app.js')}" />
+
+        <script>
+            window.URL = {
+                home: "{!URLFOR($Resource.SprintBacklog_Home, 'home.html')}",
+                taskBoard: "{!URLFOR($Resource.SprintBacklog_TaskBoard, 'task-board.html')}",
+                analytics: "{!URLFOR($Resource.SprintBacklog_Analytics, 'analytics.html')}",
+                sprintBacklog: "{!URLFOR($Resource.SprintBacklog_SprintBacklog, 'sprint-backlog.html')}",
+                404: "{!URLFOR($Resource.TAAKExpress, 'templates/404.html')}",
+                LOG_reportError: "SprintBacklogController.setError"
+            }
+            window.CSS = {
+                home: "{!URLFOR($Resource.SprintBacklog_Home, 'home.css')}",
+                taskBoard: "{!URLFOR($Resource.SprintBacklog_TaskBoard, 'task-board.css')}",
+                analytics: "{!URLFOR($Resource.SprintBacklog_Analytics, 'analytics.css')}",
+                sprintBacklog: "{!URLFOR($Resource.SprintBacklog_SprintBacklog, 'sprint-backlog.css')}",
+            }
+            window.templates = {
+                404: "{!URLFOR($Resource.TAAKExpress, 'imgs/404.svg')}",
+                calendar: "{!URLFOR($Resource.TAAKExpress, 'libs/Calendar/Calendar.html')}",
+                NoResults: "{!URLFOR($Resource.TAAKExpress, 'imgs/NoResults.svg')}",
+                NotFound: "{!URLFOR($Resource.TAAK_ProjectApp, 'assets/empty.svg')}",
+                OrderConfirmed: "{!URLFOR($Resource.TAAK_ProjectApp, 'assets/order-confimed.svg')}",
+                AccountList: "{!URLFOR($Resource.TAAKExpress, 'imgs/AccountList.svg')}",
+            }
+        </script>
+    </head>
+
+    <body ng-app="projectApp" class="ng-cloak">
+        <section class="content ng-cloak" ng-controller="MainCtrl" ng-init="init()" id="body-container">
+            <section class="content-header {{loadingWorks || config.show.loadingPage ? 'page-loading' : ''}}">
+                <div class="content-header-row">
+                    <div class="content-header-project">
+                        <div class="select-wrapper" tabindex="1">
+                            <ul>
+                                <li ng-repeat="item in data.teamList">
+                                    <input type="radio" name="radio-team" id="radio-team-{{item.id}}" ng-model="data.selectedTeam" ng-value="item" ng-change="handleChangeSelectedTeam()" />
+                                    <label ng-click="setSelectBlur($event)" for="radio-team-{{item.id}}">{{item.name}}</label>
+                                </li>
+                            </ul>
+                            <i class="feather-layout"></i>
+                            <label>
+                                <p>{{data.selectedTeam.name}}</p>
+                            </label>
+                        </div>
+                        <a class="external-link" href="{{getExternalUrl()}}" target="_blank"><i class="feather-external-link"></i></a>
+                    </div>
+                    <div class="header-search-wrapper" ng-if="data.page == 'taskboard'">
+                        <div class="header-search" tabindex="1">
+                            <i class="feather-search"></i>
+                            <input ng-model="data.search" ng-keyup="setSeachCollapse()" placeholder="Pesquisar task..." id="headerInputSearch" autocomplete="off" />
+                            <i class="feather-x" ng-if="data.search" ng-click="handleClearSearch()"></i>
+                        </div>
+                    </div>
+                    <div class="content-header-date-info">
+                        <span class="sprint-date">
+                            <h2>{{formatDateMonth(data.selectedSprint.startDate)}} - {{formatDateMonth(data.selectedSprint.endDate)}}</h2>
+                            <p>{{getDaysRemaining()}}</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="content-header-row">
+                    <div class="content-header-navigation">
+                        <ul class="board-navigation">
+                            <li class="{{data.page == 'taskboard' ? 'active' : ''}}">
+                                <a ng-if="data.page != 'taskboard'" href="#/">Taskboard</a>
+                                <a ng-if="data.page == 'taskboard'">Taskboard</a>
+                            </li>
+                            <li class="{{data.page == 'analytics' ? 'active' : ''}}">
+                                <a ng-if="data.page != 'analytics'" href="#/analytics">Analytics</a>
+                                <a ng-if="data.page == 'analytics'">Analytics</a>
+                            </li>
+                            <li class="{{data.page == 'sprintBacklog' ? 'active' : ''}}">
+                                <a ng-if="data.page != 'sprintBacklog'" href="#/sprintBacklog">Sprint Backlog</a>
+                                <a ng-if="data.page == 'sprintBacklog'">Sprint Backlog</a>
+                            </li>
+                            <li>
+                                <a class="work-button" href="{{data.link.work}}" target="_blank" ng-if="!user.isCommunity">
+                                    <i class="feather-plus" style="font-size: 15px; color: #1aa1e0"></i>
+                                    <span style="color: #1aa1e0">Work</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="content-header-control">
+                        <ul class="board-control">
+                            <li class="refresh-board">
+                                <a ng-click="handleGetWorkList()">Atualizar {{getPageTitle()}}</a>
+                            </li>
+                            <li>
+                                <div class="select-wrapper" tabindex="1">
+                                    <ul>
+                                        <li ng-repeat="item in data.selectedTeam.sprintList">
+                                            <input type="radio" name="radio-sprint" id="radio-sprint-{{item.id}}" ng-model="data.selectedSprint" ng-value="item" ng-change="handleChangeSelectedSprint()" />
+                                            <label ng-click="setSelectBlur($event)" for="radio-sprint-{{item.id}}">{{item.name}}</label>
+                                        </li>
+                                    </ul>
+                                    <i class="feather-activity"></i>
+                                    <label>
+                                        <p>{{data.selectedSprint.name}}</p>
+                                    </label>
+                                </div>
+                            </li>
+                            <li ng-if="data.page == 'taskboard'">
+                                <div class="select-wrapper" tabindex="1">
+                                    <ul>
+                                        <li>
+                                            <input type="radio" name="radio-member" id="radio-member-all" ng-model="data.selectedMember" ng-value="null" ng-change="handleSetSelectedMember()" />
+                                            <label ng-click="setSelectBlur($event)" for="radio-member-all">Todos</label>
+                                        </li>
+                                        <li ng-repeat="item in data.selectedTeam.memberList">
+                                            <input type="radio" name="radio-member" id="radio-member-{{item.id}}" ng-model="data.selectedMember" ng-value="item" ng-change="handleSetSelectedMember()" />
+                                            <label ng-click="setSelectBlur($event)" for="radio-member-{{item.id}}">{{item.name}}</label>
+                                        </li>
+                                    </ul>
+                                    <i class="feather-users"></i>
+                                    <label>
+                                        <p>Recurso: {{data.selectedMember ? data.selectedMember.name : 'Todos'}}</p>
+                                    </label>
+                                </div>
+                            </li>
+                            <li ng-if="data.page == 'taskboard' && data.sprintTaskList.length > 0">
+                                <div class="select-wrapper" tabindex="1">
+                                    <ul>
+                                        <li ng-repeat="item in data.sprintTaskList">
+                                            <input type="checkbox" name="checkbox-task" id="checkbox-task-{{item.id || 'null'}}" ng-model="item.checked" ng-change="handleSetSelectedSprintTask(item)" />
+                                            <label for="checkbox-task-{{item.id || 'null'}}"><p>{{item.name}}</p></label>
+                                        </li>
+                                    </ul>
+                                    <i class="feather-clipboard"></i>
+                                    <label>
+                                        <p>Task: {{getSprintTaskLabel()}}</p>
+                                    </label>
+                                </div>
+                            </li>
+                            <li ng-if="data.page == 'taskboard'">
+                                <div class="select-wrapper" tabindex="1">
+                                    <ul>
+                                        <li ng-repeat="item in data.visionList">
+                                            <input type="radio" name="radio-member" id="radio-member-{{item.id}}" ng-model="data.selectedVision" ng-value="item" ng-change="handleSetSelectedVision()" />
+                                            <label ng-click="setSelectBlur($event)" for="radio-member-{{item.id}}">{{item.name}}</label>
+                                        </li>
+                                    </ul>
+                                    <i class="feather-eye"></i>
+                                    <label>
+                                        <p>Visualizar por: {{data.selectedVision.name}}</p>
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="content-body" ng-view="true"></section>
+        </section>
+        <div class="wrapper-loading" ng-show="config.show.defaultLoading">
+            <div class="spinner">
+                <div class="cube1"></div>
+                <div class="cube2"></div>
+            </div>
+        </div>
+
+        <script>
+            var userData        = null;
+            var statusListData  = null;
+            try {
+                userData        = JSON.parse(`{!userDataString}`        ? `{!userDataString}`       : '{}');
+                statusListData  = JSON.parse(`{!statusListDataString}`  ? `{!statusListDataString}` : '{}');
+            } catch (error) {
+                Log.fire(null, {
+                    code: '101'
+                });
+            }
+        </script>
+    </body>
+
+    </html>
+</apex:page>

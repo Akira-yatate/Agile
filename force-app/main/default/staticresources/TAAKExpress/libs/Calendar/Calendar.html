@@ -1,0 +1,45 @@
+<div class="calendar-container {{expanded ? 'expanded' : ''}}" id="calendar-container" ng-cloak>
+    <label class="slds-form-element__label" for="{{id}}-calendar-input">{{label}}</label>
+    <input ng-model="formattedDate" tabindex="1" id="{{id}}-calendar-input" name="{{id}}-calendar-input" placeholder="{{placeholder}}" readonly />
+    <div class="calendar-content">
+        <div tabindex="2" id="{{id}}-calendar-content-block" class="calendar-content-block">
+            <div ng-if="expanded" class="calendar-selected">
+                <h2>{{getFullDate(selectedDate)}}</h2>
+            </div>
+            <div class="calendar-controls">
+                <button ng-click="setMonth(false)" class="calendar-previous"><i class="material-icons">chevron_left</i></button>
+                <div class="calendar-title">
+                    <h2><span>{{getMonthName(date)}}</span><small>{{date.getFullYear()}}</small></h2>
+                </div>
+                <button ng-click="setMonth(true)" class="calendar-next"><i class="material-icons">chevron_right</i></button>
+            </div>
+            <div class="calendar-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>D</th>
+                            <th>S</th>
+                            <th>T</th>
+                            <th>Q</th>
+                            <th>Q</th>
+                            <th>S</th>
+                            <th>S</th>
+                        </tr>
+                    </thead>
+                    <tbody ng-repeat="week in calendar.weeks track by $index">
+                        <tr>
+                            <td ng-repeat="item in week track by $index" class="{{item.avaliable ? '' : 'unavaliable'}} {{item.today ? 'today' : ''}} {{item.marked ? 'marked' : ''}} {{item.selected ? 'selected' : ''}}">
+                                <div ng-click="setDate(item)" class="calendar-item">{{item.dt}}</div>
+                                <tr ng-if="item.finishWeek">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="calendar-footer">
+                <a ng-click="reset()">Redefinir</a>
+                <a ng-show="!expanded" tabindex="3" ng-click="close($event)">Fechar</a>
+            </div>
+        </div>
+    </div>
+</div>

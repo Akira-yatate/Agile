@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Plan</fullName>
+        <default>false</default>
+        <label>Plan</label>
+    </customValue>
+    <customValue>
+        <fullName>Archt</fullName>
+        <default>false</default>
+        <label>Archt</label>
+    </customValue>
+    <customValue>
+        <fullName>Construct</fullName>
+        <default>false</default>
+        <label>Construct</label>
+    </customValue>
+    <customValue>
+        <fullName>Homolog</fullName>
+        <default>false</default>
+        <label>Homolog</label>
+    </customValue>
+    <customValue>
+        <fullName>Go-Live</fullName>
+        <default>false</default>
+        <label>Go-Live</label>
+    </customValue>
+    <customValue>
+        <fullName>Op. Assist</fullName>
+        <default>false</default>
+        <label>Op. Assist</label>
+    </customValue>
+    <customValue>
+        <fullName>Mgmt</fullName>
+        <default>false</default>
+        <label>Mgmt</label>
+    </customValue>
+    <masterLabel>Fase do Projeto</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

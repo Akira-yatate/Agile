@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>InApproval</fullName>
+    <columns>WorkCode__c</columns>
+    <columns>NAME</columns>
+    <columns>Status__c</columns>
+    <columns>BaPoints__c</columns>
+    <columns>Sprint__c</columns>
+    <columns>ApproverDate__c</columns>
+    <columns>AgileEpic__c</columns>
+    <columns>Release__c</columns>
+    <columns>Improvement__c</columns>
+    <columns>RECORDTYPE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ApproverDate__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Em Aprovação,Sprint Backlog</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>AgileWork__c.UserStory</value>
+    </filters>
+    <label>D. Todas Em Aprovação</label>
+</ListView>

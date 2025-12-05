@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SQ1_Todos_Chamados_Atuais</fullName>
+    <columns>WorkCode__c</columns>
+    <columns>NAME</columns>
+    <columns>BaPoints__c</columns>
+    <columns>Sprint__c</columns>
+    <columns>Status__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>Improvement__c</columns>
+    <columns>TeamMemberAssignedTo__c</columns>
+    <columns>AgileEpic__c</columns>
+    <columns>Release__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Team__c</field>
+        <operation>startsWith</operation>
+        <value>Squad 1</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Cancelada,Encerrada</value>
+    </filters>
+    <filters>
+        <field>Release__c</field>
+        <operation>notEqual</operation>
+        <value>SQ1: Homologações do Projeto</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>AgileWork__c.CaseBug</value>
+    </filters>
+    <label>SQ1: Todos Chamados Atuais</label>
+</ListView>

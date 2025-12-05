@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>WorkUpdateApproval</fullName>
+        <field>Status__c</field>
+        <literalValue>Aprovada</literalValue>
+        <name>Work: Status = Aprovado</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>WorkUpdateApprovalDateToday</fullName>
+        <field>ApproverDate__c</field>
+        <formula>NOW()</formula>
+        <name>Work: Data Aprovação = HOJE</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>WorkUpdateInApproval</fullName>
+        <field>Status__c</field>
+        <literalValue>Em Aprovação</literalValue>
+        <name>Work: Status = Aprovacao</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>WorkUpdatePoApprovedTrue</fullName>
+        <field>WorkApprovedByPo__c</field>
+        <literalValue>1</literalValue>
+        <name>Work: Aprovada PO = verdadeiro</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>WorkUpdateStatusInReview</fullName>
+        <field>Status__c</field>
+        <literalValue>Revisão Arquiteto</literalValue>
+        <name>Work: Status = Revisão Arquiteto</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>WorkUpdateWriting</fullName>
+        <field>Status__c</field>
+        <literalValue>Em Escrita</literalValue>
+        <name>Work: Status = Escrita</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+</Workflow>

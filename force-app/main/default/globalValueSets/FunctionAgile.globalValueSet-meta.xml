@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>InternalManager</fullName>
+        <default>false</default>
+        <label>Gestor da Consultoria</label>
+    </customValue>
+    <customValue>
+        <fullName>InternalProjectManager</fullName>
+        <default>false</default>
+        <label>Gerente de Projeto Consultoria</label>
+    </customValue>
+    <customValue>
+        <fullName>InternalArchitect</fullName>
+        <default>false</default>
+        <label>Arquiteto Consultoria</label>
+    </customValue>
+    <customValue>
+        <fullName>InternalConsultant</fullName>
+        <default>false</default>
+        <label>Consultor Funcional</label>
+    </customValue>
+    <customValue>
+        <fullName>InternalDeveloper</fullName>
+        <default>false</default>
+        <label>Desenvolvedor</label>
+    </customValue>
+    <customValue>
+        <fullName>CustomerManager</fullName>
+        <default>false</default>
+        <label>Cliente: Gestor</label>
+    </customValue>
+    <customValue>
+        <fullName>CustomerProjectManager</fullName>
+        <default>false</default>
+        <label>Cliente: Gerente de Projeto</label>
+    </customValue>
+    <customValue>
+        <fullName>CustomerDeveloper</fullName>
+        <default>false</default>
+        <label>Cliente: Desenvolvedor</label>
+    </customValue>
+    <customValue>
+        <fullName>CustomerProductOwner</fullName>
+        <default>false</default>
+        <label>Cliente: Product Owner</label>
+    </customValue>
+    <customValue>
+        <fullName>CustomerIT</fullName>
+        <default>false</default>
+        <label>Cliente: Usuário da TI</label>
+    </customValue>
+    <customValue>
+        <fullName>CustomerITLegacyTeam</fullName>
+        <default>false</default>
+        <label>Cliente: Time Legado TI</label>
+    </customValue>
+    <customValue>
+        <fullName>CustomerKeyUser</fullName>
+        <default>false</default>
+        <label>Cliente: Usuário Chave</label>
+    </customValue>
+    <masterLabel>Função Time Agile</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CaseBug</fullName>
+    <active>true</active>
+    <compactLayoutAssignment>CompactLayout</compactLayoutAssignment>
+    <description>Utilize para registrar um impedimento ou possível problema a ser investigado.</description>
+    <label>Chamado</label>
+    <picklistValues>
+        <picklist>ReleaseDeploymentControl__c</picklist>
+        <values>
+            <fullName>Em Desenvolvimento</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Implantado PROD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Implantado QA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Implantado em UAT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Não Aplicável</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pronto para PROD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pronto para QA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pronto para UAT</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>StatusSprint__c</picklist>
+        <values>
+            <fullName>BackLog</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Cancelado</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Em Construção</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Em Validação</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Liberado para Testes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Liberado para o Arquiteto</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Aguardando APK%2FIPA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aguardando Deploy QA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aguardando Informações</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aprovada</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelada</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Em Andamento</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Em Aprovação</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Em Escrita</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Em Levantamento</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Em Teste Interno</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Encerrada</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Liberado para PO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nova</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Revisão Arquiteto</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sprint Backlog</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>WorkEnvironment__c</picklist>
+        <values>
+            <fullName>Homologação</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Produção</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

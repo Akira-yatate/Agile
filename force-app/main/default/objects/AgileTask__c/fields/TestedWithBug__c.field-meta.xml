@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TestedWithBug__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Este campo indica que foi encontrado um erro no cenário de teste realizado. Quando esse campo é marcado o erro/bug será criado automaticamente na Work que controla os Erros no Backlog da Sprint.</inlineHelpText>
+    <label>Testado com erro</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

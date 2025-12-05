@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Encerra pontos concluidos na Sprint atual clonando a Work e envia a original para a próxima Sprint</description>
+    <flowDefinition>Screen_Work_Concluir_e_Enviar_Prox_Sprint</flowDefinition>
+    <label>Concluir e Enviar Próx Sprint</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>Flow</type>
+</QuickAction>

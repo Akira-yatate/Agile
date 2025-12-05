@@ -1,0 +1,283 @@
+<div ng-init="init()">
+    <div class="header-wrapper">
+        <div class="wrapper-filter">
+            <div class="max-width">
+                <!-- <div class="negotiation-params-wrapper slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="name">Nome</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" ng-model="this.filters.name" id="name"
+                                    class="browser-default slds-input" placeholder="Ex: Nome"
+                                    ng-keypress="searchIfEnterPressed($event)" />
+                                <div class="form-icon-group slds-input__icon-group slds-input__icon-group_right"
+                                    ng-show="filters.name != null && filters.name > ' '">
+                                    <button
+                                        class="form-remove-lookup-button slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        title="Limpar" ng-click="clearFilter('name')">
+                                        <svg class="slds-button__icon " aria-hidden="true">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                xlink:href="/apexpages/slds/latest/assets/icons/utility-sprite/svg/symbols.svg#close">
+                                            </use>
+                                        </svg>
+                                        <span class="slds-assistive-text">Limpar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="negotiation-params-wrapper slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="street">Rua</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" ng-model="this.filters.street" id="street"
+                                    class="browser-default slds-input" placeholder="Ex: Rua"
+                                    ng-keypress="searchIfEnterPressed($event)" />
+                                <div class="form-icon-group slds-input__icon-group slds-input__icon-group_right"
+                                    ng-show="filters.street != null && filters.street > ' '">
+                                    <button
+                                        class="form-remove-lookup-button slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        title="Limpar" ng-click="clearFilter('street')">
+                                        <svg class="slds-button__icon " aria-hidden="true">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                xlink:href="/apexpages/slds/latest/assets/icons/utility-sprite/svg/symbols.svg#close">
+                                            </use>
+                                        </svg>
+                                        <span class="slds-assistive-text">Limpar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="state">Estado</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" ng-model="this.filters.state" id="state"
+                                    class="browser-default slds-input" placeholder="Ex: Estado"
+                                    ng-keypress="searchIfEnterPressed($event)" />
+                                <div class="form-icon-group slds-input__icon-group slds-input__icon-group_right"
+                                    ng-show="filters.state != null && filters.state > ' '">
+                                    <button
+                                        class="form-remove-lookup-button slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        title="Limpar" ng-click="clearFilter('state')">
+                                        <svg class="slds-button__icon " aria-hidden="true">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                xlink:href="/apexpages/slds/latest/assets/icons/utility-sprite/svg/symbols.svg#close">
+                                            </use>
+                                        </svg>
+                                        <span class="slds-assistive-text">Limpar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="neightboard">Bairro</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" ng-model="this.filters.neightboard" id="neightboard"
+                                    class="browser-default slds-input" placeholder="Ex: Bairro"
+                                    ng-keypress="searchIfEnterPressed($event)" />
+                                <div class="form-icon-group slds-input__icon-group slds-input__icon-group_right"
+                                    ng-show="filters.neightboard != null && filters.neightboard > ' '">
+                                    <button
+                                        class="form-remove-lookup-button slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        title="Limpar" ng-click="clearFilter('neightboard')">
+                                        <svg class="slds-button__icon " aria-hidden="true">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                xlink:href="/apexpages/slds/latest/assets/icons/utility-sprite/svg/symbols.svg#close">
+                                            </use>
+                                        </svg>
+                                        <span class="slds-assistive-text">Limpar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="cep">CEP</label>
+                            <div class="slds-form-element__control">
+                                <input type="number" ng-model="this.filters.cep" id="cep"
+                                    class="browser-default slds-input" placeholder="Ex: CEP"
+                                    ng-keypress="searchIfEnterPressed($event)" />
+                                <div class="form-icon-group slds-input__icon-group slds-input__icon-group_right"
+                                    ng-show="filters.cep != null && filters.cep > ' '">
+                                    <button
+                                        class="form-remove-lookup-button slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        title="Limpar" ng-click="clearFilter('cep')">
+                                        <svg class="slds-button__icon " aria-hidden="true">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                xlink:href="/apexpages/slds/latest/assets/icons/utility-sprite/svg/symbols.svg#close">
+                                            </use>
+                                        </svg>
+                                        <span class="slds-assistive-text">Limpar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="city">Cidade</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" ng-model="this.filters.city" id="city"
+                                    class="browser-default slds-input" placeholder="Ex: Cidade"
+                                    ng-keypress="searchIfEnterPressed($event)" />
+                                <div class="form-icon-group slds-input__icon-group slds-input__icon-group_right"
+                                    ng-show="filters.city != null && filters.city > ' '">
+                                    <button
+                                        class="form-remove-lookup-button slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        title="Limpar" ng-click="clearFilter('city')">
+                                        <svg class="slds-button__icon " aria-hidden="true">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                xlink:href="/apexpages/slds/latest/assets/icons/utility-sprite/svg/symbols.svg#close">
+                                            </use>
+                                        </svg>
+                                        <span class="slds-assistive-text">Limpar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="section">Setor</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" ng-model="this.filters.section" id="section"
+                                    class="browser-default slds-input" placeholder="Ex: Setor"
+                                    ng-keypress="searchIfEnterPressed($event)" />
+                                <div class="form-icon-group slds-input__icon-group slds-input__icon-group_right"
+                                    ng-show="filters.section != null && filters.section > ' '">
+                                    <button
+                                        class="form-remove-lookup-button slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        title="Limpar" ng-click="clearFilter('section')">
+                                        <svg class="slds-button__icon " aria-hidden="true">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                xlink:href="/apexpages/slds/latest/assets/icons/utility-sprite/svg/symbols.svg#close">
+                                            </use>
+                                        </svg>
+                                        <span class="slds-assistive-text">Limpar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="max-width">
+        <div class="content-wrapper">
+            <div class="slds-form-element" role="group" aria-labelledby="picklist-group-label">
+                <div class="slds-form-element__control">
+                    <div class="slds-dueling-list">
+                        <div class="slds-assistive-text" id="drag-live-region" aria-live="assertive"></div>
+                        <div class="slds-assistive-text" id="option-drag-label">Press space bar when on an item, to move
+                            it
+                            within the list. CMD plus left and right arrow keys, to move items between lists.</div>
+                        <div class="slds-dueling-list__column slds-dueling-list__column_responsive">
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <div class="slds-checkbox">
+                                        <input type="checkbox" name="options" id="checkbox-unique-avaliable" value="checkbox-unique-avaliable" ng-change="accountListFiltred(true)" ng-model="checks.avaliable"  />
+                                        <label class="slds-checkbox__label" for="checkbox-unique-avaliable">
+                                            <span class="slds-checkbox_faux"></span>
+                                            <span class="slds-form-element__label">Available Accounts</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <span class="slds-form-element__label" id="label-13">Available Accounts</span> -->
+                            <div class="slds-dueling-list__options">
+                                <ul aria-describedby="option-drag-label" aria-labelledby="label-13"
+                                    aria-multiselectable="true" class="slds-listbox slds-listbox_vertical"
+                                    role="listbox">
+                                    <li role="presentation" ng-click="setSelected(account)" class="slds-listbox__item"
+                                        ng-repeat="account in accountListFiltred() | filter: {active: false} | orderBy:'name'">
+                                        <div class="slds-listbox__option slds-listbox__option_plain slds-media slds-media_small slds-media_inline"
+                                            aria-selected="{{account.selected}}" role="option" tabindex="$index">
+                                            <span class="slds-media__body">
+                                                <span class="slds-truncate"
+                                                    title="{{account.name}}">{{account.name}}</span>
+                                            </span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="slds-dueling-list__column">
+                            <button ng-click="setActive(true)"
+                                class="slds-button slds-button_icon slds-button_icon-container"
+                                title="Move Selection to Selected Accounts">
+                                <svg class="slds-button__icon" aria-hidden="true">
+                                    <use
+                                        xlink:href="/apexpages/slds/latest/assets/icons/utility-sprite/svg/symbols.svg#right">
+                                    </use>
+                                </svg>
+                                <span class="slds-assistive-text">Move Selection to Selected Accounts</span>
+                            </button>
+                            <button ng-click="setActive(false)"
+                                class="slds-button slds-button_icon slds-button_icon-container"
+                                title="Move Selection to Available Accounts">
+                                <svg class="slds-button__icon" aria-hidden="true">
+                                    <use
+                                        xlink:href="/apexpages/slds/latest/assets/icons/utility-sprite/svg/symbols.svg#left">
+                                    </use>
+                                </svg>
+                                <span class="slds-assistive-text">Move Selection to Available Accounts</span>
+                            </button>
+                        </div>
+                        <div class="slds-dueling-list__column slds-dueling-list__column_responsive">
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <div class="slds-checkbox">
+                                        <input type="checkbox" ng-change="accountSelectedListFiltred(true)"  ng-model="checks.selected" name="options" id="checkbox-unique-selected" value="checkbox-unique-selected"/>
+                                        <label class="slds-checkbox__label" for="checkbox-unique-selected">
+                                            <span class="slds-checkbox_faux"></span>
+                                            <span class="slds-form-element__label">Selected Accounts</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-dueling-list__options">
+                                <ul aria-describedby="option-drag-label" aria-labelledby="label-14"
+                                    aria-multiselectable="true" class="slds-listbox slds-listbox_vertical"
+                                    role="listbox">
+                                    <li role="presentation" ng-click="setSelected(account)" class="slds-listbox__item"
+                                        ng-repeat="account in accountSelectedListFiltred() | filter: {active: true} | orderBy:'name'">
+                                        <div class="slds-listbox__option slds-listbox__option_plain slds-media slds-media_small slds-media_inline"
+                                            aria-selected="{{account.selected}}" role="option" tabindex="$index">
+                                            <span class="slds-media__body">
+                                                <span class="slds-truncate"
+                                                    title="{{account.name}}">{{account.name}}</span>
+                                            </span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="button-wrapper">
+                                <button class="slds-button primary" ng-click="setCampaing()">Gerar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper-loading" ng-show="isLoading">
+    <div class="slds-spinner">
+        <div class="slds-spinner_container">
+            <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </div>
+</div>

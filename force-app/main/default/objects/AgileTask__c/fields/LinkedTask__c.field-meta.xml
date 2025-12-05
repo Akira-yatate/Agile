@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LinkedTask__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <inlineHelpText>Este campo indica se essa tarefa esta vinculada a outra tarefa desta ou de outra work.</inlineHelpText>
+    <label>Tarefa Vinculada</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>$Source.Work__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.Work__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>AgileTask__c</referenceTo>
+    <relationshipLabel>Tarefas Vinculadas</relationshipLabel>
+    <relationshipName>NeTarefas</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

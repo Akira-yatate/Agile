@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReleaseCategory__c</fullName>
+    <inlineHelpText>Utilize para classificar as works do projeto dentro da Release.</inlineHelpText>
+    <label>Categoria da Release</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>MVP</fullName>
+                <default>false</default>
+                <label>MVP</label>
+            </value>
+            <value>
+                <fullName>Backlog</fullName>
+                <default>false</default>
+                <label>Backlog</label>
+            </value>
+            <value>
+                <fullName>Hot-fix</fullName>
+                <default>false</default>
+                <label>Hot-fix</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DeliveredPointsOnly__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Quando marcada indica que a work foi clonada e encerrada na Sprint para deixar registrados os pontos concluídos. A work original foi repontuada (pontos &quot;restantes&quot; para concluir a work) e enviada para a próxima Sprint</inlineHelpText>
+    <label>PontosConcluídos</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

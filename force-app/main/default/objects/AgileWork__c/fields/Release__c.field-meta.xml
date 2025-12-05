@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Release__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Release</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>$Source.Team__c</field>
+            <operation>equals</operation>
+            <valueField>AgileRelease__c.Team__r.Id</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>AgileRelease__c</referenceTo>
+    <relationshipLabel>Works da Release</relationshipLabel>
+    <relationshipName>ReleaseWorks</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SprintCreated__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <inlineHelpText>Este campo indica em qual Sprint o Teste ou Bug foram criados!</inlineHelpText>
+    <label>Criado na Sprint</label>
+    <referenceTo>AgileSprint__c</referenceTo>
+    <relationshipLabel>Tarefas (Criado na Sprint)</relationshipLabel>
+    <relationshipName>SprintCreatedTestsAndBugs</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

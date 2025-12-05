@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Works_com_Status_de_Deploy</fullName>
+    <columns>WorkCode__c</columns>
+    <columns>NAME</columns>
+    <columns>BaPoints__c</columns>
+    <columns>Status__c</columns>
+    <columns>ReleaseDeploymentControl__c</columns>
+    <columns>WorkEnvironment__c</columns>
+    <columns>RecordType2__c</columns>
+    <columns>Sprint__c</columns>
+    <columns>Team__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>AgileWork__c.UserStory</value>
+    </filters>
+    <filters>
+        <field>Sprint__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>Works com Status de Deploy</label>
+</ListView>

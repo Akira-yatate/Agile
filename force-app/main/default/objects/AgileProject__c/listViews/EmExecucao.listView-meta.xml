@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EmExecucao</fullName>
+    <columns>NAME</columns>
+    <columns>Account__c</columns>
+    <columns>StartDate__c</columns>
+    <columns>FinalDate__c</columns>
+    <columns>InitialProjectValue__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>FinalDate__c</field>
+        <operation>greaterThan</operation>
+        <value>TODAY</value>
+    </filters>
+    <label>Em execução</label>
+</ListView>

@@ -1,0 +1,11 @@
+<div class="wrapper-default board-container" ng-cloak>
+    <div class="undraw-illustration" ng-if="!config.show.loadingPage && (!data.workList || !data.workList.length > 0)">
+        <div class="illustration-container">
+            <ng-include src="templates.404"></ng-include>
+        </div>
+        <div class="illustration-text">
+            <h3>Oops...</h3>
+            <p>Página não encontrada, utilize o menu acima para navegar pela aplicação!</p>
+        </div>
+    </div>
+</div>

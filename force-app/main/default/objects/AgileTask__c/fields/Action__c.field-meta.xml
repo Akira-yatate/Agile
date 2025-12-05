@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Action__c</fullName>
+    <inlineHelpText>Este campo determina a ação que ocorrerá quando a tarefa for finalizada.</inlineHelpText>
+    <label>Ação</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>NoAction</fullName>
+                <default>false</default>
+                <label>Sem Ação</label>
+            </value>
+            <value>
+                <fullName>ReleaseToBuiding</fullName>
+                <default>false</default>
+                <label>Libera Work para Construção</label>
+            </value>
+            <value>
+                <fullName>FirstCall</fullName>
+                <default>false</default>
+                <label>Registra Primeiro Atendimento</label>
+            </value>
+            <value>
+                <fullName>ReleaseTest</fullName>
+                <default>false</default>
+                <label>Liberação para Teste</label>
+            </value>
+            <value>
+                <fullName>ReleaseToHomolog</fullName>
+                <default>false</default>
+                <label>Finaliza Construção</label>
+            </value>
+            <value>
+                <fullName>Closing</fullName>
+                <default>false</default>
+                <label>Encerra a Work</label>
+            </value>
+            <value>
+                <fullName>FirstDelivery</fullName>
+                <default>false</default>
+                <label>Registra Primeira Solução Entregue</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

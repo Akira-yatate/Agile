@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CompactLayout</fullName>
+    <fields>Name</fields>
+    <fields>StartDate__c</fields>
+    <fields>FinalDate__c</fields>
+    <fields>PointsToDo__c</fields>
+    <fields>PointsExecuted__c</fields>
+    <label>CompactLayout</label>
+</CompactLayout>

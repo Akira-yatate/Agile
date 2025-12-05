@@ -1,0 +1,98 @@
+<div class="slds-form-element lookups" ng-show="ngModel == null" >
+    <label class="slds-form-element__label" for="{{isFunction(label) ? label() : label}}"><abbr class="slds-required" title="required" ng-if="required">* </abbr>{{isFunction(label) ? label() : label}}</label>
+    <div class="slds-form-element__control">
+        <div class="slds-combobox_container">
+            <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open" aria-expanded="true" aria-haspopup="listbox" role="combobox">
+                <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+                    <input type="text" class="browser-default slds-input slds-combobox__input slds-combobox__input-value" aria-autocomplete="list" 
+                           autoComplete="off" role="textbox" placeholder="{{isFunction(placeholder) ? placeholder() : placeholder}}" value="salesforce" 
+                           ng-change="callUpdate()" 
+                           ng-model="searchTerm" 
+                           ng-focus="startSearch()" 
+                           ng-disabled="isDisabled"
+                           id="{{isFunction(label) ? label() : label}}"
+                           />
+                    <div class="form-icon-group slds-input__icon-group slds-input__icon-group_right" ng-if="!readonly">
+                        <div role="status" class="hidden form-lookup-icon form-icon-loading-lookup slds-spinner slds-spinner_brand slds-spinner_x-small slds-input__spinner" ng-show="isSearching == true && (searchTerm != '' || recents)">
+                            <div class="slds-spinner__dot-a"></div>
+                            <div class="slds-spinner__dot-b"></div>
+                        </div>
+                        <button class="form-remove-lookup-button slds-button slds-button_icon slds-input__icon slds-input__icon_right" title="Limpar" ng-click="reset()" ng-show="isSelected == true">
+                            <svg class="slds-button__icon" aria-hidden="true">
+                                <use xlink:href="/apexpages/slds/latest/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Limpar</span>
+                        </button>
+                    </div>
+                    
+                </div>
+                <div class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid" role="listbox" ng-show="(isTyping == true && searchTerm != '') || showStaticResults == true || showRecentResults == true">
+                    <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                        <li role="presentation" class="slds-listbox__item">
+                            <div aria-selected="true" class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_term slds-has-focus" role="option">
+                                <span class="slds-media__figure slds-listbox__option-icon">
+                                    <span class="slds-icon_container slds-icon-utility-search" title="{{searchMessage}}">
+                                        <svg class="slds-icon slds-icon_x-small slds-icon-text-default" aria-hidden="true">
+                                            <use xlink:href="/apexpages/slds/latest/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+                                        </svg>
+                                        <span class="slds-assistive-text">{{searchMessage}}</span>
+                                    </span>
+                                </span>
+                                <span class="slds-media__body">
+                                    <span class="slds-listbox__option-text slds-listbox__option-text_entity">{{searchMessage}}</span>
+                                </span>
+                            </div>
+                        </li>
+                        <li role="presentation" class="slds-listbox__item" ng-repeat="result in queryResults" ng-show="queryResults.length > 0" ng-mouseup="selectRecord(result)" 
+                            ng-mousedown="preventBlur()">
+                            <div id="option-{{result.id}}" class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta" role="option">
+                                <span class="slds-media__figure slds-listbox__option-icon">
+                                    <span class="slds-icon_container slds-icon-standard-account">
+                                        <svg ng-style="{'background-color': iconColor}" class="slds-icon slds-icon_small" aria-hidden="true">
+                                            <use xlink:href="{{iconPath}}"></use>
+                                        </svg>
+                                    </span>
+                                </span>
+                                <span class="slds-media__body">
+                                    <span class="slds-listbox__option-text slds-listbox__option-text_entity">
+                                        <span>
+                                            {{getTitle(result)}}
+                                        </span>
+                                    </span>
+                                    <span class="slds-listbox__option-meta slds-listbox__option-meta_entity">{{getSubtitle(result)}}</span>
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slds-form-element" ng-show="ngModel != null" >
+    <label class="slds-form-element__label slds-form-element__label_fixed" for="{{isFunction(label) ? label() : label}}"><abbr class="slds-required" title="required" ng-if="required">* </abbr>{{isFunction(label) ? label() : label}}</label>
+    <div class="slds-form-element__control">
+        <div class="slds-combobox_container">
+            <div aria-expanded="true" aria-haspopup="listbox" class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open" role="combobox">
+                <div class="slds-combobox__form-element slds-input-has-icon_group-right slds-input-has-icon_left-right" role="none">
+                    <span class="slds-icon_container slds-combobox__input-entity-icon" title="{{isFunction(label) ? label() : label}}">
+                        <svg ng-style="{'background-color': iconColor}" class="slds-icon slds-icon_small slds-icon-standard-account" aria-hidden="true">
+                            <use xlink:href="{{iconPath}}"></use>
+                        </svg>
+                        <span class="slds-assistive-text">{{isFunction(label) ? label() : label}}</span>
+                    </span>
+                    <input aria-autocomplete="list" autocomplete="off" class="browser-default form-input slds-input slds-combobox__input slds-combobox__input-value lookup-input" role="textbox" type="text" disabled="" value="{{getTitle(selectedRecord)}}" id="'selected' + {{isFunction(label) ? label() : label}}">
+                    <div class="form-icon-group slds-input__icon-group slds-input__icon-group_right" ng-if="!readonly">
+                        <button class="form-remove-lookup-button slds-button slds-button_icon slds-input__icon slds-input__icon_right" title="Limpar" ng-click="reset()">
+                            <svg class="slds-button__icon " aria-hidden="true">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/apexpages/slds/latest/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Limpar</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

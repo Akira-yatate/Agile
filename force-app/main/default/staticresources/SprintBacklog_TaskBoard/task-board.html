@@ -1,0 +1,265 @@
+<link href="{{CSS.taskBoard}}" rel="stylesheet" />
+
+<div class="wrapper-board" ng-cloak ng-init="init()">
+    <div class="undraw-illustration" ng-if="!config.show.loadingPage && (!data.workList || !data.workList.length > 0)">
+        <div class="illustration-container">
+            <ng-include src="templates.NoResults"></ng-include>
+        </div>
+        <div class="illustration-text">
+            <h3>Sem histórias para contar...</h3>
+            <p>Parece que essa <strong>Sprint está vazia</strong>, utilize o menu acima para <strong>navegar para outra Sprint</strong>, ou adicione histórias a Sprint usando o <strong>Sprint Backlog</strong></p>
+        </div>
+    </div>
+    <table class="board-table board-table-header" ng-if="!config.show.loadingPage && data.workList && data.workList.length > 0">
+        <thead>
+            <tr>
+                <th>
+                    <div class="board-work-head">
+                        <label class="board-card-wrapper" for="col-all">
+                            <input type="checkbox" id="col-all" ng-change="collapseAll(data.collapseValue)" ng-model="data.collapseValue" ng-value="data.collapseValue" />
+                            <span></span>
+                            <h1 ng-show="data.collapseValue">Expand all</h1>
+                            <h1 ng-show="!data.collapseValue">Collapse all</h1>
+                        </label>
+                    </div>
+                </th>
+                <th ng-repeat="item in taskStatusList track by item.key">
+                    <div class="board-work-head">
+                        <label class="board-card-wrapper" for="col-{{$index}}">
+                            <input type="checkbox" id="col-{{$index}}" ng-change="collapseCol(item.key, item.checked)" ng-model="item.checked" ng-value="item.checked" />
+                            <span></span>
+                            <h1>{{item.value}} <strong>{{getHoursByStatus(item.key, true)}}</strong></h1>
+                        </label>
+                    </div>
+                </th>
+            </tr>
+        </thead>
+    </table>
+    <table class="board-table" id="board-table" ng-init="initList()" ng-if="!config.show.loadingPage && data.workList && data.workList.length > 0">
+        <tbody in-view-container>
+            <tr ng-repeat="work in data.workList track by work.id" ng-if="data.selectedVision.id == 'work'">
+                <td ng-if="work.checked">
+                    <div class="{{workRemoteActionTimestamp[work.id] ? 'board-card-loading' : ''}} board-card-wrapper" ng-mouseover="work.focus=true" ng-blur="work.focus=false">
+                        <label class="checkbox-wrapper">
+                            <input type="checkbox" ng-model="work.checked" ng-value="true" id="checkbox-work-{{work.id}}" ng-change="allWorkCollapsed()" />
+                            <span></span>
+                        </label>
+                        <div class="board-card">
+                            <div class="board-card-content">
+                                <a href="/{{work.id}}" target="_blank">
+                                    <h2><strong>{{work.name}}</strong> {{work.subject}}</h2>
+                                </a>
+                                <div class="select-wrapper" tabindex="1">
+                                    <ul ng-if="work.focus">
+                                        <li ng-repeat="item in workStatusList track by item.key">
+                                            <input type="radio" name="radio-work-status-{{work.id}}" id="radio-work-status-{{work.id}}-{{item.key}}" ng-model="work.status" ng-value="item" ng-change="handleSetWork(work)" />
+                                            <label ng-click="setSelectBlur($event)" for="radio-work-status-{{work.id}}-{{item.key}}">{{item.value}}</label>
+                                        </li>
+                                    </ul>
+                                    <label>{{work.status.value || 'Selecione um status'}}</label>
+                                </div>
+                                <div class="board-card-hours {{work.remainingPoint <= 0 || !work.remainingPoint ? 'checked' : ''}}">
+                                    <label for="b-c-work-p-{{work-id}}">Pontos restantes</label>
+                                    <input type="number" placeholder="0" onclick="this.select();" onfocus="this.select();" ng-model="work.remainingPoint" id="b-c-work-p-{{work-id}}" ng-keyup="handleKeyUpSetWork(work)" />
+                                </div>
+                                <div class="board-card-hours {{!getHoursByWork(work, true) ? 'checked' : ''}}">
+                                    <label for="b-c-work-{{work-id}}">Horas restantes</label>
+                                    <input readonly="true" value="{{getHoursByWork(work, true)}}" id="b-c-work-{{work-id}}" ng-if="getHoursByWork(work, true)" />
+                                    <i class="feather-check" ng-if="!getHoursByWork(work, true)"></i>
+                                </div>
+                            </div>
+                            <div class="board-card-footer" ng-if="work.epicName">
+                                <strong>Épica</strong> {{work.epicName}}
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td ng-if="!work.checked" class="td-collpased" colspan="{{taskStatusList.length+1}}">
+                    <label class="{{workRemoteActionTimestamp[work.id] ? 'board-card-loading' : ''}} board-card-wrapper board-card-collpased">
+                        <input type="checkbox" ng-model="work.checked" ng-value="true" id="checkbox-work-{{work.id}}"  ng-change="allWorkCollapsed()" />
+                        <span></span>
+                        <div class="board-card read-only">
+                            <div class="board-card-content">
+                                <h2><strong>{{work.name}}</strong> {{work.subject}} <strong class="board-card-separator" ng-if="getHoursByWork(work, true)">::</strong> <strong ng-if="getHoursByWork(work, true)">{{getHoursByWork(work, true)}}</strong></h2>
+                            </div>
+                        </div>
+                    </label>
+                </td>
+                <td ng-if="work.checked" ng-repeat="status in taskStatusList track by status.key" id="drop-{{status.key}}-{{work.name}}" ui-on-Drop="onDrop($event, $data, {work: work, status: status})">
+                    <div class="{{!task.assignedTo || task.assignedTo.isUnassigned || !task.assignedTo.id ? 'board-card-warning' : ''}} {{taskRemoteActionTimestamp[task.id] ? 'board-card-loading' : ''}}" ng-repeat="task in getTasks(work.taskList, status.key) | filter:data.search track by task.id">
+                        <div ng-mouseover="task.focus=true" ng-blur="task.focus=false" class="board-card {{!task.checked ? 'collapsed' : ''}} {{task.type.key}} {{!data.selectedMember || (task.assignedTo.id == data.selectedMember.id || task.assignedTo == data.selectedMember.id) ? '' : 'read-only'}}" id="drag--{{status.key}}-{{work.name}}-{{task.name}}" ui-draggable="true" drag="task" on-drop-success="dropSuccessHandler($event,$index, {work: work, status: status})">
+                            <div class="board-card-content" ng-if="task.checked">
+                                <a href="/{{task.id}}" target="_blank">
+                                    <h2><strong>{{task.name}}</strong> {{task.subject}}</h2>
+                                </a>
+                                <div class="select-wrapper" tabindex="1">
+                                    <ul ng-if="task.focus">
+                                        <li ng-repeat="item in data.selectedTeam.memberList | filter:filterMemberList track by item.id">
+                                            <input type="radio" name="radio-member-card-{{task.id}}" id="radio-member-card-{{task.id}}-{{item.id}}" ng-model="task.assignedTo" ng-value="item" ng-change="handleSetTask(task)" />
+                                            <label ng-click="setSelectBlur($event)" for="radio-member-card-{{task.id}}-{{item.id}}">{{item.name}}</label>
+                                        </li>
+                                    </ul>
+                                    <span class="board-photo" ng-if="task.assignedTo.photo">
+                                        <img ng-if="task.assignedTo.photo" src="{{task.assignedTo.photo}}" />
+                                    </span>
+                                    <label>{{task.assignedTo.name || 'Sem atribuição'}}</label>
+                                    <span class="hint" ng-if="(!task.assignedTo || task.assignedTo.isUnassigned || !task.assignedTo.id)">
+                                        <i class="material-icons">warning</i>
+                                        <section class="hint-message">
+                                            <p>Para mover este card, <strong>atribua um recurso</strong> a ele</p>
+                                        </section>
+                                    </span>
+                                </div>
+                                <div class="select-wrapper" tabindex="2" ng-if="task.type.key == 'Bug' && (task.assignedTo && task.assignedTo.id && !task.assignedTo.isUnassigned)">
+                                    <ul ng-if="task.focus">
+                                        <li ng-repeat="item in classificationList">
+                                            <input type="radio" name="radio-classification-card-{{task.id}}" id="radio-classification-card-{{task.id}}-{{item.key}}" ng-model="task.classification" ng-value="item" ng-change="handleSetTask(task)" />
+                                            <label ng-click="setSelectBlur($event)" for="radio-classification-card-{{task.id}}-{{item.key}}">{{item.value}}</label>
+                                        </li>
+                                    </ul>
+                                    <label>{{task.classification.value || 'Sem classificação'}}</label>
+                                </div>
+                                <div class="board-card-hours" ng-if="task.type.key == 'Test' && (task.assignedTo && task.assignedTo.id && !task.assignedTo.isUnassigned)">
+                                    <label for="b-c-t-{{task.id}}">Teste com erro</label>
+                                    <label for="b-c-t-{{task.id}}" class="checkbox-container">
+                                        <input type="checkbox" id="b-c-t-{{task.id}}" ng-model="task.testedWithBug" ng-change="setTask(task)" />
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="board-card-hours">
+                                    <label for="b-c-e-{{task.id}}">Horas estimadas</label>
+                                    <input type="number" onclick="this.select();" onfocus="this.select();" ng-model="task.initialHours" id="b-c-e-{{task.id}}" ng-if="(task.assignedTo && !task.assignedTo.isUnassigned && task.assignedTo.id)" ng-keyup="handleKeyUpSetTask(task)" />
+                                    <input type="number" ng-model="task.initialHours" id="b-c-e-{{task.id}}" ng-if="(!task.assignedTo || task.assignedTo.isUnassigned || !task.assignedTo.id)" readonly="true" />
+                                </div>
+                                <div class="board-card-hours {{isCompletedStatus(status.key) ? 'checked' : ''}}">
+                                    <label for="b-c-{{task.id}}">Horas restantes</label>
+                                    <input type="number" onclick="this.select();" onfocus="this.select();" ng-model="task.remainingHours" id="b-c-{{task.id}}" ng-if="!isCompletedStatus(status.key) && (task.assignedTo && !task.assignedTo.isUnassigned && task.assignedTo.id)" ng-keyup="handleKeyUpSetTask(task)" />
+                                    <input type="number" ng-model="task.remainingHours" id="b-c-{{task.id}}" ng-if="!isCompletedStatus(status.key) && (!task.assignedTo || task.assignedTo.isUnassigned || !task.assignedTo.id)" readonly="true" />
+                                    <i class="feather-check" ng-if="isCompletedStatus(status.key)"></i>
+                                </div>
+                            </div>
+                            <div class="board-card-content" ng-if="!task.checked">
+                                <a href="/{{task.id}}" target="_blank">
+                                    <h2><strong>{{task.name}}</strong> {{task.subject}} :: <strong>{{task.assignedTo.name || 'Sem atribuição'}}</strong>{{!isCompletedStatus(status.key) ? ' :: ' : ''}}<strong ng-if="!isCompletedStatus(status.key)">{{formatNumber(task.remainingHours, 0) + 'h'}}</strong></h2>
+                                </a>
+                            </div>
+                            <div class="board-card-footer sprint" ng-if="isFromAnotherSprint(task)">
+                                <strong>Sprint</strong> {{getSprintName(task.sprint)}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="board-button" ng-if="$index == 0 && !user.isCommunity">
+                        <a class="button" href="{{data.link.task}}" target="_blank"><i class="feather-plus"></i></a>
+                        <a href="{{data.link.task}}" target="_blank">Novo item</a>
+                    </div>
+                </td>
+            </tr>
+            <tr ng-repeat="member in data.selectedTeam.memberList track by member.id" ng-if="data.selectedVision.id == 'member'">
+                <td ng-if="member.checked">
+                    <div class="board-card-wrapper">
+                        <label class="checkbox-wrapper">
+                            <input type="checkbox" ng-model="member.checked" ng-value="true" id="checkbox-member-{{member.id}}" />
+                            <span></span>
+                        </label>
+                        <div class="board-card Member {{!data.selectedMember || (member.id == data.selectedMember.id || member == data.selectedMember.id) ? '' : 'read-only'}}">
+                            <div class="board-card-content">
+                                <h2><strong>{{member.name}}</strong>{{member.role.value ? ' :: ' + member.role.value : '' }}</h2>
+                                <div class="board-card-hours">
+                                    <label for="b-c-member-{{member-id}}">Capacidade</label>
+                                    <input readonly="true" value="{{getCapacityByMember(member, true)}}" id="b-c-member-{{member-id}}"/>
+                                </div>
+                                <div class="board-card-hours {{!getHoursByMember(member.id, true) ? 'checked' : ''}}">
+                                    <label for="b-c-member-{{member-id}}">Horas restantes</label>
+                                    <input readonly="true" class="{{getCapacityByMember(member, false) >= getHoursByMember(member.id, false) ? 'text-success' : 'text-error'}}" value="{{getHoursByMember(member.id, true)}}" id="b-c-member-{{member-id}}" ng-if="getHoursByMember(member.id, true)" />
+                                    <i class="feather-check" ng-if="!getHoursByMember(member.id, true)"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td ng-if="!member.checked" class="td-collpased" colspan="{{taskStatusList.length+1}}">
+                    <label class="board-card-wrapper board-card-collpased">
+                        <input type="checkbox" ng-model="member.checked" ng-value="true" id="checkbox-member-{{member.id}}"  ng-change="allMemberCollapsed()" />
+                        <span></span>
+                        <div class="board-card Member read-only">
+                            <div class="board-card-content">
+                                <h2><strong>{{member.name}}</strong>{{member.role.value ? ' :: ' + member.role.value : '' }} :: Tasks: <strong>{{getTasksQuantityByMember(member)}}</strong> | Backlog: <strong>{{formatNumber(getTasksHoursByMember(member.id, 'Not Started') || 0, 0)}}h</strong> | In Progress: <strong>{{formatNumber(getTasksHoursByMember(member.id, 'In Progress') || 0, 0)}}h</strong> | Capacidade: <strong>{{getCapacityByMember(member, true)}}</strong> | Horas restantes: <strong class="{{getCapacityByMember(member, false) >= getHoursByMember(member.id, false) ? 'text-success' : 'text-error'}}">{{getHoursByMember(member.id, true) || 0}}</strong></h2>
+                            </div>
+                        </div>
+                    </label>
+                </td>
+                <td ng-if="member.checked" ng-repeat="status in taskStatusList track by status.key" id="drop-{{status.key}}-{{member.name}}" ui-on-Drop="onDrop($event, $data, {work: null, member: member, status: status})">
+                    <div class="{{!task.assignedTo || task.assignedTo.isUnassigned || !task.assignedTo.id ? 'board-card-warning' : ''}} {{taskRemoteActionTimestamp[task.id] ? 'board-card-loading' : ''}}" ng-repeat="task in getTasksByMember(member.id, status.key) | filter:data.search track by task.id">
+                        <div ng-mouseover="task.focus=true" ng-blur="task.focus=false" class="board-card {{!task.checked ? 'collapsed' : ''}} {{task.type.key}} {{!data.selectedMember || (task.assignedTo.id == data.selectedMember.id || task.assignedTo == data.selectedMember.id) ? '' : 'read-only'}}" id="drag--{{status.key}}-{{member.id}}-{{task.name}}" ui-draggable="true" drag="task" on-drop-success="dropSuccessHandler($event,$index, {work: null, member: member, status: status})">
+                            <div class="board-card-content" ng-if="task.checked">
+                                <a href="/{{task.id}}" target="_blank">
+                                    <h2><strong>{{task.name}}</strong> {{task.subject}}</h2>
+                                </a>
+                                <div class="select-wrapper" tabindex="1">
+                                    <ul ng-if="task.focus">
+                                        <li ng-repeat="item in data.selectedTeam.memberList track by item.id">
+                                            <input type="radio" name="radio-member-card-{{task.id}}" id="radio-member-card-{{task.id}}-{{item.id}}" ng-model="task.assignedTo" ng-value="item" ng-change="handleSetTask(task)" />
+                                            <label ng-click="setSelectBlur($event)" for="radio-member-card-{{task.id}}-{{item.id}}">{{item.name}}</label>
+                                        </li>
+                                    </ul>
+                                    <span class="board-photo" ng-if="task.assignedTo.photo">
+                                        <img ng-if="task.assignedTo.photo" src="{{task.assignedTo.photo}}" />
+                                    </span>
+                                    <label>{{task.assignedTo.name || 'Sem atribuição'}}</label>
+                                    <span class="hint" ng-if="(!task.assignedTo || task.assignedTo.isUnassigned || !task.assignedTo.id)">
+                                        <i class="material-icons">warning</i>
+                                        <section class="hint-message">
+                                            <p>Para mover este card, <strong>atribua um recurso</strong> a ele</p>
+                                        </section>
+                                    </span>
+                                </div>
+                                <div class="select-wrapper" tabindex="2" ng-if="task.type.key == 'Bug' && (task.assignedTo && task.assignedTo.id && !task.assignedTo.isUnassigned)">
+                                    <ul ng-if="task.focus">
+                                        <li ng-repeat="item in classificationList">
+                                            <input type="radio" name="radio-classification-card-{{task.id}}" id="radio-classification-card-{{task.id}}-{{item.key}}" ng-model="task.classification" ng-value="item" ng-change="handleSetTask(task)" />
+                                            <label ng-click="setSelectBlur($event)" for="radio-classification-card-{{task.id}}-{{item.key}}">{{item.value}}</label>
+                                        </li>
+                                    </ul>
+                                    <label>{{task.classification.value || 'Sem classificação'}}</label>
+                                </div>
+                                <div class="board-card-hours" ng-if="task.type.key == 'Test' && (task.assignedTo && task.assignedTo.id && !task.assignedTo.isUnassigned)">
+                                    <label for="b-c-t-{{task.id}}">Teste com erro</label>
+                                    <label for="b-c-t-{{task.id}}" class="checkbox-container">
+                                        <input type="checkbox" id="b-c-t-{{task.id}}" ng-model="task.testedWithBug" ng-change="setTask(task)" />
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="board-card-hours">
+                                    <label for="b-c-e-{{task.id}}">Horas estimadas</label>
+                                    <input type="number" onclick="this.select();" onfocus="this.select();" ng-model="task.initialHours" id="b-c-e-{{task.id}}" ng-if="(task.assignedTo && !task.assignedTo.isUnassigned && task.assignedTo.id)" ng-keyup="handleKeyUpSetTask(task)" />
+                                    <input type="number" ng-model="task.initialHours" id="b-c-e-{{task.id}}" ng-if="!task.assignedTo || task.assignedTo.isUnassigned || !task.assignedTo.id)" readonly="true" />
+                                </div>
+                                <div class="board-card-hours {{isCompletedStatus(status.key) ? 'checked' : ''}}">
+                                    <label for="b-c-{{task.id}}">Horas restantes</label>
+                                    <input type="number" onclick="this.select();" onfocus="this.select();" ng-model="task.remainingHours" id="b-c-{{task.id}}" ng-if="!isCompletedStatus(status.key) && (task.assignedTo && !task.assignedTo.isUnassigned && task.assignedTo.id)" ng-keyup="handleKeyUpSetTask(task)" />
+                                    <input type="number" ng-model="task.remainingHours" id="b-c-{{task.id}}" ng-if="!isCompletedStatus(status.key) && (!task.assignedTo || task.assignedTo.isUnassigned || !task.assignedTo.id)" readonly="true" />
+                                    <i class="feather-check" ng-if="isCompletedStatus(status.key)"></i>
+                                </div>
+                            </div>
+                            <div class="board-card-content" ng-if="!task.checked">
+                                <a href="/{{task.id}}" target="_blank">
+                                    <h2><strong>{{task.name}}</strong> {{task.subject}} :: <strong>{{task.assignedTo.name || 'Sem atribuição'}}</strong>{{!isCompletedStatus(status.key) ? ' :: ' : ''}}<strong ng-if="!isCompletedStatus(status.key)">{{formatNumber(task.remainingHours, 0) + 'h'}}</strong></h2>
+                                </a>
+                            </div>
+                            <div class="board-card-footer">
+                                <strong>{{handleGetWorkByTask(task).name}}</strong> {{handleGetWorkByTask(task).subject}}
+                            </div>
+                            <div class="board-card-footer sprint" ng-if="isFromAnotherSprint(task)">
+                                <strong>Sprint</strong> {{getSprintName(task.sprint)}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="board-button" ng-if="$index == 0 && !user.isCommunity">
+                        <a class="button" href="{{data.link.task}}" target="_blank"><i class="feather-plus"></i></a>
+                        <a href="{{data.link.task}}" target="_blank">Novo item</a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

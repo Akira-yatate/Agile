@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Improvement__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Indica que a História de Usuário é uma melhoria de outra história já desenvolvida e entregue anteriormente. Auxilia na análise do backlog e é usado em relatórios e painéis do projeto.</inlineHelpText>
+    <label>Melhoria?</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

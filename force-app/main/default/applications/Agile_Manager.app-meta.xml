@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <content>Agile_HomePage</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+    </actionOverrides>
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>true</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>true</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>Agile Manager</label>
+    <navType>Standard</navType>
+    <tabs>standard-home</tabs>
+    <tabs>SprintBacklog</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
+    <tabs>AgileWork__c</tabs>
+    <tabs>AgileTeam__c</tabs>
+    <tabs>AgileRelease__c</tabs>
+    <tabs>AgileEpic__c</tabs>
+    <tabs>AgileSprint__c</tabs>
+    <tabs>AgileProject__c</tabs>
+    <tabs>AgileProjectResource__c</tabs>
+    <tabs>AgileTeamMember__c</tabs>
+    <tabs>AgileChartRecord__c</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-ApprovalSubmission</tabs>
+    <tabs>standard-FlowOrchestrationInstance</tabs>
+    <tabs>standard-ProcessInstanceWorkitem</tabs>
+    <tabs>standard-MergeRequest</tabs>
+    <tabs>AgileTask__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Agile_Manager_UtilityBar</utilityBar>
+</CustomApplication>

@@ -1,0 +1,125 @@
+<link href="{{CSS.sprintBacklog}}" rel="stylesheet" />
+<div class="wrapper-board" ng-cloak ng-init="init()">
+
+    <section class="multipicklist-container">
+        <div class="multipicklist-zone">
+            <div class="multipicklist-header">
+                <h2>Backlog</h2>
+                <span>
+                    <strong>{{formatNumber(data.workBacklog.lengthWork, 0, 0)}}</strong> works :: 
+                    <strong>{{formatNumber(data.workBacklog.points, 0, 0)}}</strong> pontos :: 
+                    <strong>{{formatNumber(data.workBacklog.tasks, 0, 0)}}</strong> tasks :: 
+                    <strong>{{formatNumber(data.workBacklog.hours, 0, 2)}}</strong> horas
+                    <!-- <span class="hint">
+                        <i class="material-icons">help</i>
+                        <section class="hint-message">
+                            <p>Selecione <strong>Todas</strong> para ver todas as histórias e tarefas independentes do status</p>
+                            <p>Selecione <strong>Em andamento</strong> para ver todas as histórias e tarefas com status diferentes de <strong>concluído e/ou diferido</strong></p>
+                        </section>
+                    </span> -->
+                </span>
+            </div>
+            <div class="multipicklist-content {{data.showAloneWithout ? 'empty-content' : ''}}" id="board-table-remove">
+                <div class="undraw-illustration" ng-if="data.showAloneWithout">
+                    <div class="illustration-container">
+                        <ng-include src="templates.NoResults"></ng-include>
+                    </div>
+                    <div class="illustration-text">
+                        <h3>Sem histórias para contar...</h3>
+                        <p>Parece que o seu <strong>Backlog está vazio</strong>, <strong>arraste e solte histórias</strong> aqui para <strong>adicioná-las</strong> ao <strong>Backlog</strong>, ou clique em <strong>+ Work</strong> no menu acima para <strong>criar novas histórias</strong></p>
+                    </div>
+                </div>
+                <div    id="{{work.id}}" 
+                        class="multipicklist-item draggable-source {{workRemoteActionTimestamp[work.id] ? 'board-card-loading' : ''}}" 
+                        ng-repeat="work in data.workBacklogList track by work.id">
+                    <div class="multipicklist-item-point {{work.finishedSprint ? 'completed' : ''}}">
+                        <span>{{formatNumber(work.storyPoints, 0, 0)}}</span>
+                    </div>
+                    <a title="{{work.subject}}" href="/{{work.id}}" target="_blank" class="multipicklist-item-content">
+                        <label class="{{work.finishedSprint ? 'completed' : ''}}">
+                            <p>
+                                <strong>{{work.name}}</strong>, {{work.type.value}}
+                            </p>
+                            <span>
+                                <p>
+                                    <strong ng-if="work.status.value">{{work.status.value}}</strong>{{work.status.value ? ' :: ' : ''}}
+                                    <strong>{{work.taskList.length}}</strong> tasks :: 
+                                    <strong>{{formatNumber(work.estimatedHours, 0, 2)}}</strong> horas 
+                                </p>
+                                <span class="hint" ng-if="work.finishedSprint">
+                                    <i class="material-icons">help</i>
+                                    <section class="hint-message">
+                                        <p>Histórias <strong>finalizadas</strong> não podem ser movidas para outra esteira</p>
+                                    </section>
+                                </span>
+                            </span>
+                        </label>
+                        <h3>{{work.subject}}</h3>
+                    </a>
+                    <div class="multipicklist-item-footer release" ng-if="work.hasRelease">
+                        <strong>Release</strong> {{work.releaseName}}
+                    </div>
+                    <div class="multipicklist-item-footer" ng-if="work.hasEpic">
+                        <strong>Épica</strong> {{work.epicName}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="multipicklist-zone">
+            <div class="multipicklist-header">
+                <h2>Sprint atual</h2>
+                <span>
+                    <strong>{{formatNumber(data.workSprint.lengthWork, 0, 0)}}</strong> works :: 
+                    <strong>{{formatNumber(data.workSprint.points, 0, 0)}}</strong> pontos :: 
+                    <strong>{{formatNumber(data.workSprint.tasks, 0, 0)}}</strong> tasks :: 
+                    <strong>{{formatNumber(data.workSprint.hours, 0, 2)}}</strong> horas
+                </span>
+            </div>
+            <div class="multipicklist-content {{data.showAloneWith ? 'empty-content' : ''}}" id="board-table-add">
+                <div class="undraw-illustration" ng-if="data.showAloneWith">
+                    <div class="illustration-container">
+                        <ng-include src="templates.NoResults"></ng-include>
+                    </div>
+                    <div class="illustration-text">
+                        <h3>Sem histórias para contar...</h3>
+                        <p>Parece que essa <strong>Sprint está vazia</strong>, <strong>arraste e solte histórias</strong> aqui para <strong>adicioná-las</strong> a <strong>sprint atual</strong></p>
+                    </div>
+                </div>
+                <div    id="{{work.id}}"
+                        class="multipicklist-item draggable-source {{workRemoteActionTimestamp[work.id] ? 'board-card-loading' : ''}}" 
+                        ng-repeat="work in data.workList track by work.id">
+                    <div class="multipicklist-item-point {{work.finishedSprint ? 'completed' : ''}}">
+                        <span>{{formatNumber(work.storyPoints, 0, 0)}}</span>
+                    </div>
+                    <a title="{{work.subject}}" href="/{{work.id}}" target="_blank" class="multipicklist-item-content">
+                        <label class="{{work.finishedSprint ? 'completed' : ''}}">
+                            <p>
+                                <strong>{{work.name}}</strong>, {{work.type.value}}
+                            </p>
+                            <span>
+                                <p>
+                                    <strong ng-if="work.status.value">{{work.status.value}}</strong>{{work.status.value ? ' :: ' : ''}}
+                                    <strong>{{work.taskList.length}}</strong> tasks :: 
+                                    <strong>{{formatNumber(work.estimatedHours, 0, 2)}}</strong> horas 
+                                </p>
+                                <span class="hint" ng-if="work.finishedSprint">
+                                    <i class="material-icons">help</i>
+                                    <section class="hint-message">
+                                        <p>Histórias <strong>finalizadas</strong> não podem ser movidas para outra esteira</p>
+                                    </section>
+                                </span>
+                            </span>
+                        </label>
+                        <h3>{{work.subject}}</h3>
+                    </a>
+                    <div class="multipicklist-item-footer release" ng-if="work.hasRelease">
+                        <strong>Release</strong> {{work.releaseName}}
+                    </div>
+                    <div class="multipicklist-item-footer" ng-if="work.hasEpic">
+                        <strong>Épica</strong> {{work.epicName}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

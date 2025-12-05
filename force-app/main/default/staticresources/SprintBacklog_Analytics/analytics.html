@@ -1,0 +1,12 @@
+<link href="{{CSS.analytics}}" rel="stylesheet" />
+
+<div class="wrapper-default" ng-cloak ng-init="init()">
+    <div class="chart-wrapper">
+        <div class="chart-burndown">
+            <div class="ct-chart" ng-if="data.burndownData" ng-init="initChart()"></div>
+        </div>
+        <div class="chart-capacity">
+            <div class="ct-chart-capacity" ng-if="data.capacityData" ng-init="initCapacityChart()"></div>
+        </div>
+    </div>
+</div>

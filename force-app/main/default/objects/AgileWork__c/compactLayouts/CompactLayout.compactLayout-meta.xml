@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CompactLayout</fullName>
+    <fields>WorkCodeTitle__c</fields>
+    <fields>BaPoints__c</fields>
+    <fields>AgileEpic__c</fields>
+    <fields>Status__c</fields>
+    <fields>RecordTypeId</fields>
+    <fields>Improvement__c</fields>
+    <fields>Name</fields>
+    <fields>WorkCode__c</fields>
+    <label>CompactLayout</label>
+</CompactLayout>

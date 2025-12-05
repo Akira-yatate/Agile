@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject>AgileSprint__c</baseObject>
+    <category>other</category>
+    <deployed>true</deployed>
+    <description>Utilize para criar gráficos de burndown e burnup</description>
+    <join>
+        <outerJoin>true</outerJoin>
+        <relationship>AgileChartRecords__r</relationship>
+    </join>
+    <label>Gráficos Agile</label>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Sprint ID</displayNameOverride>
+            <field>Id</field>
+            <table>AgileSprint__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <displayNameOverride>Nome</displayNameOverride>
+            <field>Name</field>
+            <table>AgileSprint__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Data de criação</displayNameOverride>
+            <field>CreatedDate</field>
+            <table>AgileSprint__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Criado por</displayNameOverride>
+            <field>CreatedBy</field>
+            <table>AgileSprint__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Data de Inicio</displayNameOverride>
+            <field>StartDate__c</field>
+            <table>AgileSprint__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Data de Fim</displayNameOverride>
+            <field>FinalDate__c</field>
+            <table>AgileSprint__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Data da última modificação</displayNameOverride>
+            <field>LastModifiedDate</field>
+            <table>AgileSprint__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Modificado pela última vez por</displayNameOverride>
+            <field>LastModifiedBy</field>
+            <table>AgileSprint__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Data da última atividade</displayNameOverride>
+            <field>LastActivityDate</field>
+            <table>AgileSprint__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Time</displayNameOverride>
+            <field>Team__c</field>
+            <table>AgileSprint__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <displayNameOverride>Status</displayNameOverride>
+            <field>Status__c</field>
+            <table>AgileSprint__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride># Pontos BA</displayNameOverride>
+            <field>BaPoints__c</field>
+            <table>AgileSprint__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride># Pontos Dev</displayNameOverride>
+            <field>DevPoints__c</field>
+            <table>AgileSprint__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride># Pontos Restantes BA</displayNameOverride>
+            <field>RemainingBaPoints__c</field>
+            <table>AgileSprint__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride># Pontos Restantes Dev</displayNameOverride>
+            <field>RemainingDevPoints__c</field>
+            <table>AgileSprint__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Total de Pontos</displayNameOverride>
+            <field>AgileEstimatedPointsSum__c</field>
+            <table>AgileSprint__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Pontos Concluídos</displayNameOverride>
+            <field>PointsExecuted__c</field>
+            <table>AgileSprint__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Pontos a Fazer</displayNameOverride>
+            <field>PointsToDo__c</field>
+            <table>AgileSprint__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Horas Trabalhadas</displayNameOverride>
+            <field>WorkDays__c</field>
+            <table>AgileSprint__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Total de Dias Trabalhaveis</displayNameOverride>
+            <field>WorkHours__c</field>
+            <table>AgileSprint__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Fase da Release</displayNameOverride>
+            <field>ReleasePhase__c</field>
+            <table>AgileSprint__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NextSprint__c</field>
+            <table>AgileSprint__c</table>
+        </columns>
+        <masterLabel>Sprints</masterLabel>
+    </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Agile Chart Record ID</displayNameOverride>
+            <field>Id</field>
+            <table>AgileSprint__c.AgileChartRecords__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <displayNameOverride>Chart Record</displayNameOverride>
+            <field>Name</field>
+            <table>AgileSprint__c.AgileChartRecords__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Data de criação</displayNameOverride>
+            <field>CreatedDate</field>
+            <table>AgileSprint__c.AgileChartRecords__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Criado por</displayNameOverride>
+            <field>CreatedBy</field>
+            <table>AgileSprint__c.AgileChartRecords__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Data da última modificação</displayNameOverride>
+            <field>LastModifiedDate</field>
+            <table>AgileSprint__c.AgileChartRecords__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Modificado pela última vez por</displayNameOverride>
+            <field>LastModifiedBy</field>
+            <table>AgileSprint__c.AgileChartRecords__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Pontos Estimados</displayNameOverride>
+            <field>EstimatedPoints__c</field>
+            <table>AgileSprint__c.AgileChartRecords__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Pontos Reais</displayNameOverride>
+            <field>ActualPoints__c</field>
+            <table>AgileSprint__c.AgileChartRecords__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Data</displayNameOverride>
+            <field>SprintDate__c</field>
+            <table>AgileSprint__c.AgileChartRecords__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <displayNameOverride>Ordem do Dia da Sprint</displayNameOverride>
+            <field>SprintDateOrder__c</field>
+            <table>AgileSprint__c.AgileChartRecords__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <displayNameOverride>Tipo</displayNameOverride>
+            <field>Type__c</field>
+            <table>AgileSprint__c.AgileChartRecords__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Points__c</field>
+            <table>AgileSprint__c.AgileChartRecords__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CurrentSprint__c</field>
+            <table>AgileSprint__c.AgileChartRecords__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ActualPointsCreated__c</field>
+            <table>AgileSprint__c.AgileChartRecords__r</table>
+        </columns>
+        <masterLabel>Agile Chart Records</masterLabel>
+    </sections>
+</ReportType>

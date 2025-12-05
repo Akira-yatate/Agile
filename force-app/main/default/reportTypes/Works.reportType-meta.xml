@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject>AgileWork__c</baseObject>
+    <category>admin</category>
+    <deployed>true</deployed>
+    <description>Tipo de relatório de works</description>
+    <label>Works</label>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Ambiente de Atuação</displayNameOverride>
+            <field>WorkEnvironment__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Atribuido á</displayNameOverride>
+            <field>WhatId__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Work : Release : Categoria da Release</displayNameOverride>
+            <field>Release__c.ReleaseCategory__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <displayNameOverride>Código da Work</displayNameOverride>
+            <field>WorkCode__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Controle de Deploy</displayNameOverride>
+            <field>ReleaseDeploymentControl__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Criado por</displayNameOverride>
+            <field>CreatedBy</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Data da última atividade</displayNameOverride>
+            <field>LastActivityDate</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Data da última modificação</displayNameOverride>
+            <field>LastModifiedDate</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Data de Aprovação</displayNameOverride>
+            <field>ApproverDate__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Data de criação</displayNameOverride>
+            <field>CreatedDate</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Épico</displayNameOverride>
+            <field>AgileEpic__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AgileEpic__c.AggregatedEpic__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Work : Tipo de registro : ID do tipo de registro</displayNameOverride>
+            <field>RecordType.Id</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Melhoria?</displayNameOverride>
+            <field>Improvement__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Modificado pela última vez por</displayNameOverride>
+            <field>LastModifiedBy</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Work : Tipo de registro : Nome do tipo de registro</displayNameOverride>
+            <field>RecordType.DeveloperName</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Release</displayNameOverride>
+            <field>Release__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Sprint</displayNameOverride>
+            <field>Sprint__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <displayNameOverride>Status</displayNameOverride>
+            <field>Status__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Story Points</displayNameOverride>
+            <field>BaPoints__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Time</displayNameOverride>
+            <field>Team__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Tipo de registro</displayNameOverride>
+            <field>RecordType</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Tipo Registro Ajustado</displayNameOverride>
+            <field>RecordType2__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Usuário Aprovador</displayNameOverride>
+            <field>ApproverUser__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <displayNameOverride>Work</displayNameOverride>
+            <field>Name</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <masterLabel>Works (Principais)</masterLabel>
+    </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride># Pontos Dev</displayNameOverride>
+            <field>DevPoints__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride># Pontos Restantes BA</displayNameOverride>
+            <field>RemainingBaPoints__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride># Pontos Restantes Dev</displayNameOverride>
+            <field>RemainingDevPoints__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Criar Tasks Padrão</displayNameOverride>
+            <field>TriggerDefaultTasksFlow__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Descrição</displayNameOverride>
+            <field>Description__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Descrição Tecnica</displayNameOverride>
+            <field>TechnicalDescription__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Núvem</displayNameOverride>
+            <field>Cloud__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Observação da aprovação</displayNameOverride>
+            <field>ApprovalObservation__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Ordem na Sprint</displayNameOverride>
+            <field>SprintRank__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Pendências</displayNameOverride>
+            <field>Impediment__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Responsável pela escrita</displayNameOverride>
+            <field>Writer__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Status Desenvolvimento</displayNameOverride>
+            <field>StatusSprint__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Total de Pontos</displayNameOverride>
+            <field>TotalPoints__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Total de Pontos Restantes</displayNameOverride>
+            <field>RemainPoints__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>User Story (E Q P )</displayNameOverride>
+            <field>UserStoryEQP__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Work ID</displayNameOverride>
+            <field>Id</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <masterLabel>Works (Outros)</masterLabel>
+    </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Work : Sprint : Data de Inicio</displayNameOverride>
+            <field>Sprint__c.StartDate__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Work : Sprint : Data Término</displayNameOverride>
+            <field>Sprint__c.FinalDate__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Work : Sprint : Nome</displayNameOverride>
+            <field>Sprint__c.Name</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Work : Sprint : Status</displayNameOverride>
+            <field>Sprint__c.Status__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <masterLabel>Sprint da Work</masterLabel>
+    </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>WorkCodeTitle__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>OriginalWork__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CurrentSprint__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>HasImpediment__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>TeamMemberAssignedTo__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DeliveredPointsOnly__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>WorkApprovedByPo__c</field>
+            <table>AgileWork__c</table>
+        </columns>
+        <masterLabel>Works</masterLabel>
+    </sections>
+</ReportType>

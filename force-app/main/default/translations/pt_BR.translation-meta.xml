@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customApplications>
+        <label><!-- Agile Manager --></label>
+        <name>Agile_Manager</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- Projetos --></label>
+        <name>Projects</name>
+    </customApplications>
+    <customTabs>
+        <label><!-- Sprint Backlog --></label>
+        <name>SprintBacklog</name>
+    </customTabs>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <name>Screen_01_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>Screen_01_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>Screen_01_Section1_Column2</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>Screen_01_Section1_Column3</name>
+                </fields>
+                <fields>
+                    <name>Screen_Pontos_Estimados_para_Concluir</name>
+                </fields>
+                <fields>
+                    <name>Screen_TextoExplicacao</name>
+                </fields>
+                <fields>
+                    <name>Screen_WorkDoneName</name>
+                    <validationRule/>
+                </fields>
+                <name>Screen_01</name>
+            </screens>
+        </flows>
+        <fullName>Screen_Work_Concluir_e_Enviar_Prox_Sprint</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <name>ScreenAssignTo</name>
+                </fields>
+                <fields>
+                    <name>ScreenCodeTitle</name>
+                </fields>
+                <fields>
+                    <name>ScreenRecordType</name>
+                </fields>
+                <fields>
+                    <name>ScreenTaskDescription</name>
+                    <validationRule/>
+                </fields>
+                <fields>
+                    <name>ScreenTaskName</name>
+                    <validationRule/>
+                </fields>
+                <fields>
+                    <name>Screen_InsertNewTask_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>Screen_InsertNewTask_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>Screen_InsertNewTask_Section1_Column2</name>
+                </fields>
+                <name>Screen_InsertNewTask</name>
+            </screens>
+        </flows>
+        <fullName>Screen_Work_InsertNewTask</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <name>Screen_Work_Description</name>
+                </fields>
+                <fields>
+                    <name>Screen_Work_Name</name>
+                </fields>
+                <fields>
+                    <name>Screen_Work_Origin</name>
+                </fields>
+                <fields>
+                    <name>Screen_Work_Tipo_Registro</name>
+                </fields>
+                <name>Screen_Work_Relacionado</name>
+            </screens>
+        </flows>
+        <fullName>Screen_Work_Nova_work_relacionada</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <name>Screen_Work_Description</name>
+                </fields>
+                <fields>
+                    <name>Screen_Work_Name</name>
+                </fields>
+                <fields>
+                    <name>Screen_Work_Origin</name>
+                </fields>
+                <fields>
+                    <name>Screen_Work_Tipo_Registro</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value/>
+                    </inputParameters>
+                    <name>Screen_related_Work</name>
+                </fields>
+                <name>Screen_Work_Relacionado</name>
+            </screens>
+        </flows>
+        <fullName>Screen_Work_Nova_work_relacionada_Portal</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Task_CreateTestTask</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Task_FieldUpdates</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Work_FieldUpdates</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Work_InsertPOTestTask</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Work_InsertStandardTasks</fullName>
+    </flowDefinitions>
+    <quickActions>
+        <label><!-- Nova tarefa --></label>
+        <name>NewTask</name>
+    </quickActions>
+    <reportTypes>
+        <description><!-- Gráficos Agile --></description>
+        <label><!-- Gráficos Agile --></label>
+        <name>AgileChartsReport</name>
+        <sections>
+            <columns>
+                <label><!-- Agile Chart Record ID --></label>
+                <name>Agile Chart Record ID</name>
+            </columns>
+            <columns>
+                <label><!-- Chart Record --></label>
+                <name>Chart Record</name>
+            </columns>
+            <columns>
+                <label><!-- Criado por --></label>
+                <name>Criado por</name>
+            </columns>
+            <columns>
+                <label><!-- Data --></label>
+                <name>Data</name>
+            </columns>
+            <columns>
+                <label><!-- Data da última modificação --></label>
+                <name>Data da última modificação</name>
+            </columns>
+            <columns>
+                <label><!-- Data de criação --></label>
+                <name>Data de criação</name>
+            </columns>
+            <columns>
+                <label><!-- Modificado pela última vez por --></label>
+                <name>Modificado pela última vez por</name>
+            </columns>
+            <columns>
+                <label><!-- Ordem do Dia da Sprint --></label>
+                <name>Ordem do Dia da Sprint</name>
+            </columns>
+            <columns>
+                <label><!-- Pontos Estimados --></label>
+                <name>Pontos Estimados</name>
+            </columns>
+            <columns>
+                <label><!-- Pontos Reais --></label>
+                <name>Pontos Reais</name>
+            </columns>
+            <columns>
+                <label><!-- Tipo --></label>
+                <name>Tipo</name>
+            </columns>
+            <label><!-- Agile Chart Records --></label>
+            <name>Agile Chart Records</name>
+        </sections>
+        <sections>
+            <columns>
+                <label><!-- # Pontos BA --></label>
+                <name># Pontos BA</name>
+            </columns>
+            <columns>
+                <label><!-- # Pontos Dev --></label>
+                <name># Pontos Dev</name>
+            </columns>
+            <columns>
+                <label><!-- # Pontos Restantes BA --></label>
+                <name># Pontos Restantes BA</name>
+            </columns>
+            <columns>
+                <label><!-- # Pontos Restantes Dev --></label>
+                <name># Pontos Restantes Dev</name>
+            </columns>
+            <columns>
+                <label><!-- Criado por --></label>
+                <name>Criado por</name>
+            </columns>
+            <columns>
+                <label><!-- Data da última atividade --></label>
+                <name>Data da última atividade</name>
+            </columns>
+            <columns>
+                <label><!-- Data da última modificação --></label>
+                <name>Data da última modificação</name>
+            </columns>
+            <columns>
+                <label><!-- Data de Fim --></label>
+                <name>Data de Fim</name>
+            </columns>
+            <columns>
+                <label><!-- Data de Inicio --></label>
+                <name>Data de Inicio</name>
+            </columns>
+            <columns>
+                <label><!-- Data de criação --></label>
+                <name>Data de criação</name>
+            </columns>
+            <columns>
+                <label><!-- Fase da Release --></label>
+                <name>Fase da Release</name>
+            </columns>
+            <columns>
+                <label><!-- Horas Trabalhadas --></label>
+                <name>Horas Trabalhadas</name>
+            </columns>
+            <columns>
+                <label><!-- Modificado pela última vez por --></label>
+                <name>Modificado pela última vez por</name>
+            </columns>
+            <columns>
+                <label><!-- Nome --></label>
+                <name>Nome</name>
+            </columns>
+            <columns>
+                <label><!-- Pontos Concluídos --></label>
+                <name>Pontos Concluídos</name>
+            </columns>
+            <columns>
+                <label><!-- Pontos a Fazer --></label>
+                <name>Pontos a Fazer</name>
+            </columns>
+            <columns>
+                <label><!-- Sprint ID --></label>
+                <name>Sprint ID</name>
+            </columns>
+            <columns>
+                <label><!-- Status --></label>
+                <name>Status</name>
+            </columns>
+            <columns>
+                <label><!-- Time --></label>
+                <name>Time</name>
+            </columns>
+            <columns>
+                <label><!-- Total de Dias Trabalhaveis --></label>
+                <name>Total de Dias Trabalhaveis</name>
+            </columns>
+            <columns>
+                <label><!-- Total de Pontos --></label>
+                <name>Total de Pontos</name>
+            </columns>
+            <label><!-- Sprints --></label>
+            <name>Sprints</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Works --></description>
+        <label><!-- Works --></label>
+        <name>Works</name>
+        <sections>
+            <columns>
+                <label><!-- Work : Sprint : Data Término --></label>
+                <name>Work : Sprint : Data Término</name>
+            </columns>
+            <columns>
+                <label><!-- Work : Sprint : Data de Inicio --></label>
+                <name>Work : Sprint : Data de Inicio</name>
+            </columns>
+            <columns>
+                <label><!-- Work : Sprint : Nome --></label>
+                <name>Work : Sprint : Nome</name>
+            </columns>
+            <columns>
+                <label><!-- Work : Sprint : Status --></label>
+                <name>Work : Sprint : Status</name>
+            </columns>
+            <label><!-- Sprint da Work --></label>
+            <name>Sprint da Work</name>
+        </sections>
+        <sections>
+            <label><!-- Works --></label>
+            <name>Works</name>
+        </sections>
+        <sections>
+            <columns>
+                <label><!-- # Pontos Dev --></label>
+                <name># Pontos Dev</name>
+            </columns>
+            <columns>
+                <label><!-- # Pontos Restantes BA --></label>
+                <name># Pontos Restantes BA</name>
+            </columns>
+            <columns>
+                <label><!-- # Pontos Restantes Dev --></label>
+                <name># Pontos Restantes Dev</name>
+            </columns>
+            <columns>
+                <label><!-- Criar Tasks Padrão --></label>
+                <name>Criar Tasks Padrão</name>
+            </columns>
+            <columns>
+                <label><!-- Descrição --></label>
+                <name>Descrição</name>
+            </columns>
+            <columns>
+                <label><!-- Descrição Tecnica --></label>
+                <name>Descrição Tecnica</name>
+            </columns>
+            <columns>
+                <label><!-- Núvem --></label>
+                <name>Núvem</name>
+            </columns>
+            <columns>
+                <label><!-- Observação da aprovação --></label>
+                <name>Observação da aprovação</name>
+            </columns>
+            <columns>
+                <label><!-- Ordem na Sprint --></label>
+                <name>Ordem na Sprint</name>
+            </columns>
+            <columns>
+                <label><!-- Pendências --></label>
+                <name>Pendências</name>
+            </columns>
+            <columns>
+                <label><!-- Responsável pela escrita --></label>
+                <name>Responsável pela escrita</name>
+            </columns>
+            <columns>
+                <label><!-- Status Desenvolvimento --></label>
+                <name>Status Desenvolvimento</name>
+            </columns>
+            <columns>
+                <label><!-- Total de Pontos --></label>
+                <name>Total de Pontos</name>
+            </columns>
+            <columns>
+                <label><!-- Total de Pontos Restantes --></label>
+                <name>Total de Pontos Restantes</name>
+            </columns>
+            <columns>
+                <label><!-- User Story (E Q P ) --></label>
+                <name>User Story (E Q P )</name>
+            </columns>
+            <columns>
+                <label><!-- Work ID --></label>
+                <name>Work ID</name>
+            </columns>
+            <label><!-- Works (Outros) --></label>
+            <name>Works (Outros)</name>
+        </sections>
+        <sections>
+            <columns>
+                <label><!-- Ambiente de Atuação --></label>
+                <name>Ambiente de Atuação</name>
+            </columns>
+            <columns>
+                <label><!-- Atribuido á --></label>
+                <name>Atribuido á</name>
+            </columns>
+            <columns>
+                <label><!-- Controle de Deploy --></label>
+                <name>Controle de Deploy</name>
+            </columns>
+            <columns>
+                <label><!-- Criado por --></label>
+                <name>Criado por</name>
+            </columns>
+            <columns>
+                <label><!-- Código da Work --></label>
+                <name>Código da Work</name>
+            </columns>
+            <columns>
+                <label><!-- Data da última atividade --></label>
+                <name>Data da última atividade</name>
+            </columns>
+            <columns>
+                <label><!-- Data da última modificação --></label>
+                <name>Data da última modificação</name>
+            </columns>
+            <columns>
+                <label><!-- Data de Aprovação --></label>
+                <name>Data de Aprovação</name>
+            </columns>
+            <columns>
+                <label><!-- Data de criação --></label>
+                <name>Data de criação</name>
+            </columns>
+            <columns>
+                <label><!-- Melhoria? --></label>
+                <name>Melhoria?</name>
+            </columns>
+            <columns>
+                <label><!-- Modificado pela última vez por --></label>
+                <name>Modificado pela última vez por</name>
+            </columns>
+            <columns>
+                <label><!-- Release --></label>
+                <name>Release</name>
+            </columns>
+            <columns>
+                <label><!-- Sprint --></label>
+                <name>Sprint</name>
+            </columns>
+            <columns>
+                <label><!-- Status --></label>
+                <name>Status</name>
+            </columns>
+            <columns>
+                <label><!-- Story Points --></label>
+                <name>Story Points</name>
+            </columns>
+            <columns>
+                <label><!-- Time --></label>
+                <name>Time</name>
+            </columns>
+            <columns>
+                <label><!-- Tipo Registro Ajustado --></label>
+                <name>Tipo Registro Ajustado</name>
+            </columns>
+            <columns>
+                <label><!-- Tipo de registro --></label>
+                <name>Tipo de registro</name>
+            </columns>
+            <columns>
+                <label><!-- Usuário Aprovador --></label>
+                <name>Usuário Aprovador</name>
+            </columns>
+            <columns>
+                <label><!-- Work --></label>
+                <name>Work</name>
+            </columns>
+            <columns>
+                <label><!-- Work : Release : Categoria da Release --></label>
+                <name>Work : Release : Categoria da Release</name>
+            </columns>
+            <columns>
+                <label><!-- Work : Tipo de registro : ID do tipo de registro --></label>
+                <name>Work : Tipo de registro : ID do tipo de registro</name>
+            </columns>
+            <columns>
+                <label><!-- Work : Tipo de registro : Nome do tipo de registro --></label>
+                <name>Work : Tipo de registro : Nome do tipo de registro</name>
+            </columns>
+            <columns>
+                <label><!-- Épico --></label>
+                <name>Épico</name>
+            </columns>
+            <label><!-- Works (Principais) --></label>
+            <name>Works (Principais)</name>
+        </sections>
+    </reportTypes>
+</Translations>

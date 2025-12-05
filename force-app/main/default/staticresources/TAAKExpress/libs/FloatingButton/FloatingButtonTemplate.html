@@ -1,0 +1,30 @@
+<div class="wrapper-action sticky {{parameter.options.isOpen ? 'open-action' : ''}}">
+    <div class="group-action">
+        <div class="btn-action {{parameter.options.buttonClass + ' ' + button.buttonClass}}" ng-class="" ng-repeat="button in parameter.buttons" ng-click="this[button.callback()]">
+            <span class="slds-icon_container" title="{{button.label}}">
+                <svg class="slds-icon slds-current-color" aria-hidden="true">
+                    <use xlink:href="{{button.iconPath}}"></use>
+                </svg>
+                <span class="slds-assistive-text">{{button.label}}</span>
+            </span>
+            <label>{{button.label}}</label>
+        </div>
+        <div class="btn-action {{parameter.options.buttonClass + ' ' + parameter.options.controlButton.buttonClass}}" ng-click="this[parameter.options.controlButton.closed.callback()]" ng-if="!parameter.options.isOpen">
+            <span class="slds-icon_container" title="{{parameter.options.controlButton.closed.label}}">
+                <svg class="slds-icon slds-current-color" aria-hidden="true">
+                    <use xlink:href="{{parameter.options.controlButton.closed.iconPath}}"></use>
+                </svg>
+                <span class="slds-assistive-text">{{parameter.options.controlButton.closed.label}}</span>
+            </span>
+        </div>
+        <div class="btn-action {{parameter.options.buttonClass + ' ' + parameter.options.controlButton.buttonClass}}" ng-click="this[parameter.options.controlButton.opened.callback()]" ng-if="parameter.options.isOpen">
+            <span class="slds-icon_container" title="{{parameter.options.controlButton.opened.label}}">
+                <svg class="slds-icon slds-current-color" aria-hidden="true">
+                    <use xlink:href="{{parameter.options.controlButton.opened.iconPath}}"></use>
+                </svg>
+                <span class="slds-assistive-text">{{parameter.options.controlButton.opened.label}}</span>
+            </span>
+        </div>
+    </div>
+</div>
+<div class="background-action" ng-click="this[parameter.options.closeMethod()]"></div>

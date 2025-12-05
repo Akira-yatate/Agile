@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SprintDate__c</fullName>
+    <inlineHelpText>Preencha com o dia da sprint, por exemplo, se a Sprint tem 10 dias, aqui deve ser preenchido com a data do dia 1, dia 2...</inlineHelpText>
+    <label>Data</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>
